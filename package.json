@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "12.x"
@@ -22,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~12.0.2",
     "@angular/router": "~12.0.2",
     "rxjs": "~6.6.0",
+    "serve": "^11.3.2",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
   },
