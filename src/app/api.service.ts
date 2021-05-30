@@ -8,7 +8,8 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  baseUrl = 'http://nimisha-test-app.infinityfreeapp.com/api';
+  // baseUrl = 'http://nimisha-test-app.infinityfreeapp.com/api';
+  baseUrl = 'https://f4fresh.in/nimisha';
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {
@@ -16,6 +17,13 @@ export class ApiService {
       map((res) => {
         return res;
     }))
+  }
+
+  getcompany(idval: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/getById`, { id: idval })
+      .pipe(map((res) => {
+        return res;
+      }))
   }
 
 }

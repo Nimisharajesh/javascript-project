@@ -1,12 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -310,7 +301,9 @@
   <span>Stocks</span>
     <div class="spacer"></div>
 </div>
-<div>
+<div style="min-height: 100% !important;
+background-image: linear-gradient(white, #d1ebf08c);
+padding-bottom: 40%;">
   <div class="content" role="main">
 
     <!-- Highlight Card -->
@@ -322,64 +315,64 @@
     </div>
   
     <div class="searchbox">
-      <i class="fa fa-search" aria-hidden="true"></i>
+      <i class="fa fa-search"></i>
       <input type="text" [(ngModel)]="searchText" (ngModelChange)="fetchnames($event)" placeholder="Search Company" >
     </div>
     <div class="cover" *ngIf="suggestions.length">
       <div class="suggestions" (click)="selectedItem(item)" *ngFor="let item of suggestions">
-        {{item.model}}
+        {{item.name}}
       </div>  
     </div>
   
   
-    <div class="displaybox">
-      <div class="comapanyname">Tech Mahindra</div>
+    <div *ngIf="griddata != '' && gridflag" class="displaybox">
+      <div class="comapanyname">{{griddata.Name}}</div>
       <div class="details">
         <div class="row">
           <div class="col">
             <div class="fields">
               <span class="label">Market Cap</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.Market_Cap}}</span>
             </div>
             <div class="fields backgroundcol">
               <span class="label">Current Price</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.Current_Market_Price}}</span>
             </div>
             <div class="fields">
               <span class="label">Stock P/E</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.Stock_P}}</span>
             </div>
             <div class="fields backgroundcol">
               <span class="label">Debt</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.Debt}}</span>
             </div>
           </div>
           <div class="col">
             <div class="fields">
               <span class="label">Divided Yield</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.Dividend_Yield}}</span>
             </div>
             <div class="fields backgroundcol">
               <span class="label">Roce</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.ROCE}}</span>
             </div>
             <div class="fields">
               <span class="label">Roe</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.ROE_Previous_Annum}}</span>
             </div>
           </div>
           <div class="col">
             <div class="fields">
               <span class="label">Debt Equality</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.Debt_to_Equity}}</span>
             </div>
             <div class="fields backgroundcol">
               <span class="label">Eps</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.EPS}}</span>
             </div>
             <div class="fields">
               <span class="label">Reserves</span>
-              <span class="values">12312</span>
+              <span class="values">{{griddata.Reserves}}</span>
             </div>
           </div>
         </div>
